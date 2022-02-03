@@ -1,14 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('displays search for music text', () => {
+test('renders learn react link', () => {
   render(<App />);
-  const textElement = screen.getByText(/Search for Music!/i);
-  expect(textElement).toBeInTheDocument();
-});
-
-test('renders search bar', () => {
-  render(<App />);
-  const textElement = screen.getByText(/Search for Music!/i);
-  expect(textElement).toBeInTheDocument();
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
 });
