@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { Route, Routes, BrowserRouter } from 'react-router-dom'
 import './App.css'
 import Gallery from './components/Gallery'
 import Searchbar from './components/Searchbar'
@@ -38,19 +38,24 @@ function App() {
     <div className='App'>
       {message}
       <BrowserRouter>
-        
-        <Route exact path="/">
-          <Searchbar handleSearch={handleSearch} />
-          <Gallery data={data} />
-        </Route>
-
-        <Route exact path="/album/:id">
-          <AlbumView />
-        </Route>
-
-        <Route exact path="/artist/:id">
-          <ArtistView />
-        </Route>
+        <Routes>
+          <Route exact path="/" element={
+            <div>
+              <Searchbar handleSearch={handleSearch} />
+              <Gallery data={data} />
+            </div>
+          } />
+          <Route exact path="/album/:id" element={
+            <div>
+              <AlbumView />
+            </div>
+          } />
+          <Route exact path="/artist/:id" element={
+            <div>
+              <ArtistView />
+            </div>
+          } />
+        </Routes>
       </BrowserRouter>
     </div>
   )
