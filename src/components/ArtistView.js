@@ -1,9 +1,11 @@
-import { useState, useEffect } from 'react'
+// These components will be making separate API calls from the app
+// component to serve specific data about our artist
+import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 const ArtistView = () => {
     const { id } = useParams()
-    const [artistData, setArtistData] = useState([])
+    const [ artistData, setArtistData ] = useState([])
 
     return (
         <div>
@@ -12,4 +14,5 @@ const ArtistView = () => {
         </div>
     )
 }
+
 export default ArtistView
